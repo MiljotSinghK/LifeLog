@@ -1,10 +1,98 @@
 <html>
     <head>
         <title>LifeLog -List Your Life</title>
+        <link href="LifeLog.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
+        <span>LifeLog</span>
+        <br><br><hr>
+        <div class="welcome">
+            Hello beautiful human ,I welcome you to LifeLog ,I can sense that you have spent so much time on this earth ,you seem to be so full of life !<br>
+            You must have had your fair share of troubles and experiences .Do you take a record of them ? So that you may show it to your future self ...
+            <br> Well as they say ,there is no right time to start ,so why not take your first log here ,so that we too know that you exist ...
+        </div>
+        
+        <div class="category">
+        <p >Choose your category -What do you wish to keep a record of ?</p>
+        <div class="flex_category" >
+        <button id ="reminders" class="category_button">Reminders <input type="checkbox" id="rem"></button>
+        <button id ="hobbies" class="category_button">Hobbies <input type="checkbox" id="hob"></button>
+        <button id="tasks" class="category_button">Tasks <input type="checkbox" id="tas"></button>
+        <button id="watched" class="category_button">Watched <input type="checkbox"id="wat"></button>
+        <button id="quotes" class="category_button">Quotes <input type="checkbox" id="quo"></button>
+        </div>
+        <br>
+        
+        <!-- <div class="flex_category" >
+        <button>Songs <input type="checkbox"></button>
+        <button>Movies <input type="checkbox"></button>
+        <button>Travel <input type="checkbox"></button>
+        <button>Achievements <input type="checkbox"></button>
+        <button>Series <input type="checkbox"></button>
+        </div> -->
+        <button id="get_started">Get Started</button>
+        </div>
         <script>
+            
+            document.addEventListener("wheel",function(){
+                document.querySelectorAll(".category").forEach(el => {
+                    el.style.visibility="visible";
+                    el.style.animation="Show 5s";
+            });
+            });
+                
 
+            let reminders=document.getElementById("reminders"),rem=document.getElementById("rem"),
+            hobbies=document.getElementById("hobbies"),hob=document.getElementById("hob"),
+            tasks=document.getElementById("tasks"),tas=document.getElementById("tas"),
+            watched=document.getElementById("watched"),wat=document.getElementById("wat"),
+            quotes=document.getElementById("quotes"),quo=document.getElementById("quo");
+            
+            let categ_list=[];
+            
+            document.querySelectorAll(".category_button").forEach((cate)=>{
+                let check=document.getElementById(cate.id.slice(0,3)),toRemove;
+                cate.addEventListener("click",function(event){
+                check.checked=!check.checked;
+                if (check.checked){
+                    cate.style.border="5px solid red";
+                    categ_list.push(cate.id+".html");
+                }
+                else{
+                    cate.style.border="";
+                    toRemove=categ_list.indexOf(cate.id+".html")
+                    categ_list.splice(toRemove,1);
+                }
+                console.log(categ_list);
+            });
+            check.addEventListener("click",function(event_getting_checked){
+                event_getting_checked.stopPropagation();
+                if (check.checked){
+                    cate.style.border="5px solid red";
+                    categ_list.push(cate.id+".html");
+                }
+                else{
+                    cate.style.border="";
+                    toRemove=categ_list.indexOf(cate.id+".html")
+                    categ_list.splice(toRemove,1);
+                }
+                
+            });
+        });
+
+        const Start=document.getElementById("get_started")
+        Start.addEventListener("mouseenter",function(){
+            Start.style.backgroundImage="linear-gradient(to right,white 80%,lightpink 20%)";
+        });
+        Start.addEventListener("mouseleave",function(){
+            Start.style.backgroundImage="linear-gradient(to right,white 40%,lightpink 60%)";
+        });
+            
+        Start.addEventListener("click",function(){
+            localStorage.setItem("categoryList",JSON.stringify(categ_list));
+            window.open(categ_list[0],"_blank");
+        });
         </script>
     </body>
 </html>
