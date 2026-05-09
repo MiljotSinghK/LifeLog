@@ -30,25 +30,21 @@ CSS3
 
 ### Project Structure:
 
-'''
-
+```
 LifeLog/
 
 ├──LifeLog.html     #Main Homepage
 
-&#x09;├──Reminders.html
+	├──Reminders.html
 
-&#x09;├──Hobbies.html
+	├──Hobbies.html
 
-&#x09;├──Tasks.html
+	├──Tasks.html
 
-&#x09;├──Watched.html
+	├──Watched.html
 
-&#x09;├──Quotes.html
-
-
-
-'''
+	├──Quotes.html
+```
 
 
 
