@@ -46,6 +46,18 @@ LifeLog/
 	├──Quotes.html
 ```
 
+### Pros/Best Points:
+1\. Has a lot of features such as dark mode and users can choose which tabs they wish to keep .
+
+2\. Clean look and good color combination. 
+
+
+
+### Cons/Shortcomings:
+1\. Uses too much event listeners, forEach loops and DOM element properties for making the more dynamic and interactive but slows down too and is difficult to explain and manage.
+
+2\.The idea is expandable but to an extend ,then it starts becoming repetitive.
+
 
 
 ### Usage

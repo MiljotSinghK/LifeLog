@@ -6,24 +6,33 @@
     </head>
     <body>
         <span>LifeLog</span>
+        <!-- dark mode toggle button -->
+        <label id="dark_mode"><input type="checkbox" id="dark">  Dark Mode</label>
         <br><br><hr>
         <div class="welcome">
             Hello beautiful human ,I welcome you to LifeLog ,I can sense that you have spent so much time on this earth ,you seem to be so full of life !<br>
             You must have had your fair share of troubles and experiences .Do you take a record of them ? So that you may show it to your future self ...
             <br> Well as they say ,there is no right time to start ,so why not take your first log here ,so that we too know that you exist ...
+         <p>↓ Go Downward ↓</p> <!--Scroll to see main mechanism...-->
         </div>
-        
+       
+
         <div class="category">
-        <p >Choose your category -What do you wish to keep a record of ?</p>
+        <p >Choose your categories -Which of these do you wish to keep a record of ?</p>
+        <form id="choose_category"> 
+        <!--The form will contain buttons to take input from user of the tabs he wishes to keep-->
         <div class="flex_category" >
         <button id ="reminders" class="category_button">Reminders <input type="checkbox" id="rem"></button>
         <button id ="hobbies" class="category_button">Hobbies <input type="checkbox" id="hob"></button>
-        <button id="tasks" class="category_button">Tasks <input type="checkbox" id="tas"></button>
+        <button id="songs" class="category_button">Tasks <input type="checkbox" id="son"></button>
         <button id="watched" class="category_button">Watched <input type="checkbox"id="wat"></button>
         <button id="quotes" class="category_button">Quotes <input type="checkbox" id="quo"></button>
         </div>
         <br>
         
+        <p id="error_message" style="color:red;text-decoration: underline crimson;"></p>
+        <!-- This error message is used for form validation, so that user must choose atleast 1 choice -->
+
         <!-- <div class="flex_category" >
         <button>Songs <input type="checkbox"></button>
         <button>Movies <input type="checkbox"></button>
@@ -31,8 +40,12 @@
         <button>Achievements <input type="checkbox"></button>
         <button>Series <input type="checkbox"></button>
         </div> -->
-        <button id="get_started">Get Started</button>
+
+        <button type="submit" id="get_started">Get Started</button>
+        <!-- This submit button is used to submit the form but not to the server ,so that we may use it to our advantage using event.preventDefault() -->
+        </form>
         </div>
-        <script src="LifeLog.js"></script>
+        <script src="LifeLog.js"></script> 
+        <!-- External JS source -->
     </body>
 </html>

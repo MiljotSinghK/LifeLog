@@ -1,13 +1,25 @@
+/* Creating own font-family-> Cause */
 @font-face{
     font-family:"Cause";
     src:url('Fonts/Cause/Cause-VariableFont_wght.ttf'),
     url('Fonts/Cause/static/Cause-Bold.ttf'),
 }
+/* Animation for category list scroll to see */
 @keyframes Show {
     from {opacity:0;}
     to {opacity:2;}
 }
 
+@keyframes dark{
+    from {background-color: lightpink;}
+    to {background-color: black;
+    }
+}
+@keyframes light{
+    from {background-color: black;}
+    to {background-color: ligthpink;
+    }
+}
 
 body{
     background-color:lightpink;
@@ -16,7 +28,12 @@ body{
     font-size: 30px;
     width:fit-content;
     /* padding:10px; */
+    transition :background-color 2s,color 2s;
 }
+
+p{text-align:center;}
+
+/* span is for title of webpage and also very important */
 span{
     background-color: white;
     font-size:40px;
@@ -24,13 +41,15 @@ span{
     padding:10px;
     border-radius: 30px;
     position:relative;
-    left:40vw;
+    left:35vw;
     top:20px;
 }
 hr{
     height:10px;
     background-color: white;
 }
+
+/* HTML content :*/
 div.welcome{
     font-family: 'Cause';
     background-color: white;
@@ -41,6 +60,8 @@ div.welcome{
     padding:10px;
     margin:10px;
 }
+
+
 div.category{
     visibility:hidden;
     background-color:blueviolet;
@@ -55,7 +76,7 @@ div.category{
     justify-content: space-around;
 }
 
-div.flex_category button{
+.category_button{
     font-size:30px;
     font-family:"Cause";
     padding:5px;
@@ -63,6 +84,8 @@ div.flex_category button{
     background-color: black;
     color:white;
 }
+
+/* To enhance the checkboxes */
 div.flex_category input[type="checkbox"]{
     scale: 2;
     position:relative;
@@ -77,4 +100,40 @@ div.flex_category input[type="checkbox"]{
     color:black;
     border-right:18px ridge black;
     
+}
+a{
+    background-color:black;
+    padding:6px;
+    border:3px solid white;
+    border-radius:5px;
+    color:white;
+    text-decoration: none;
+}
+
+/* for going back to original Homepage */
+#go_back{
+    float:left;
+    transition :background-color 2s,color 2s;
+}
+/* for the dark mode button encapsulating the checkbox too */
+#dark_mode{
+    float:right;
+    position:relative;
+    top:30px;
+    margin:10px;
+    font-size:30px;
+    font-family:"Cause";
+    padding:5px;
+    border-radius:12px;
+    background-color: black;
+    color:white;
+    transition :background-color 2s,color 2s;
+}
+/* for the dark mode checkbox */
+#dark{
+    scale:2;
+    padding:15px;
+    position:relative;
+    bottom:3px;
+    accent-color: blueviolet;
 }
