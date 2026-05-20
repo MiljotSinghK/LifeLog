@@ -64,7 +64,7 @@
             error.innerHTML="";
             eve.preventDefault();
             if (categ_list.length==0){
-                error.innerHTML="ERROR! : Kindly choose a category...";
+                error.innerHTML="ERROR! : Kindly choose atleast one category...";
                 console.log(error.innerHTML);                
             }
             else{

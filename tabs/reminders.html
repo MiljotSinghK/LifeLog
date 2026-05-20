@@ -1,11 +1,14 @@
 <html>
     <head>
         <title>LifeLog -Reminders</title>
-        <link href="../LifeLog.css" rel="stylesheet">
+        <link href="common.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width">
+        <style>
+            body{background-color: lightskyblue;width:auto;}
+        </style>
     </head>
     <body>
-        <span>Reminders</span>
+        <span class="title">Reminders</span>
         <button id="go_back" class="category_button">Go Back</button>
         <label id="dark_mode"><input type="checkbox" id="dark">  Dark Mode</label>
         <br><br><hr>
@@ -16,9 +19,17 @@
         </div>
 
         <div class="welcome">
-            Hello beautiful human ,I welcome you to LifeLog-Reminders ,You can create so many awesome reminders of your choice here ,that will help you rememeber everything 
-            about your day and life ...
-            <button>Add plus button </button>
+            <div style="height:100px;width:100px;background-color: lightskyblue;">
+                <button id="add_new">+</button>
+            </div>
+            <li class="reminder"  type="1">
+                    <input id="text_box" placeholder="Take dog out for walk ,Go for event...">
+                    <div id="icons"><button id="delete"><img src="../Icons/blueDeleteIcon.png"></button>
+                    <button id="time"><img src="../Icons/timeIcon.png"></button> </div>
+                </li>
+            <div class="lists" >
+                
+            </div>
         </div>
         
         <script src="common.js"></script>
