@@ -15,18 +15,95 @@
         <div class="category" style="visibility:visible;">
         <div class="flex_category" id="navbar" >
 
+        </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
         </div>
-        </div>
-
+        <form id="hobbies">
         <div class="welcome">
-            Hello beautiful human ,I welcome you to LifeLog-Hobbies ,You can write so many awesome hobbies of your choice here ,that will help you rememeber everything 
-            about your day and life ...
-            <button></button>
+            
+            <div style="height:100px;width:100px;background-color: lightgreen;">
+                <button id="add_new">+</button>
+            </div>
+            
+            <div class="lists" >
+            <li class="hobby"  type="1">
+                    <input id="text_box" placeholder="Sports ,Gym ,Singing, Dancing ..." class="textbox">
+                    <div id="icons"><button id="delete"><img src="../Icons/blueDeleteIcon.png"></button></button> </div>
+                </li>
+            </div>
+            
         </div>
+        </form>
         
         <script src="common.js"></script>
         <script>
+            console.log(person_data);
+
+            let add_button=document.getElementById("add_new");
+    let add_rem=function(){
+    let new_element=document.createElement("li");
+    new_element.type="1";
+    new_element.className="hobby";
+    new_element.innerHTML='<input id="text_box" placeholder="..." class="textbox" ><div id="icons"><button id="delete"><img src="../Icons/blueDeleteIcon.png"> </div>';
+    document.querySelector(".lists").appendChild(new_element);
+    }
+
+add_button.addEventListener("click",add_rem);
+
+let list_cont=document.querySelector(".lists");
+list_cont.addEventListener("click",function(e){
+    let target=e.target;
+    if (target.closest("input")){
+        let all_rems=document.querySelectorAll("#text_box");
+       if (target===all_rems[all_rems.length-1]){
+        add_rem();
+       }
+    }
+    else if (target.closest("button") || target.closest("img")){
+        
+        if (target.closest("button").id=="delete"){
             
+            target.closest("li").remove();
+            dynamic();
+        }            
+        }
+})  
+
+    add_button.addEventListener("mouseenter",()=>{
+        add_button.style.transform="scale(4.05,4.05)";
+        add_button.closest("div").style.transform="scale(1.05,1.05)";
+    })
+    add_button.addEventListener("mouseleave",()=>{
+        add_button.style.transform="scale(4.0,4.0)";
+        add_button.closest("div").style.transform="scale(1,1)";
+    })
+
+    let hobbies=person_data.hobbies || [] ;
+    console.log(hobbies);
+    if (hobbies[hobbies.length-1]==''){
+        hobbies.pop()
+    }
+    console.log(hobbies);
+    for (let i=0;i<hobbies.length;i++){
+        add_rem();
+        document.querySelectorAll(".textbox")[i].value=hobbies[i];
+    }
+    let submit=document.getElementById("hobbies");
+    submit.addEventListener("submit",function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        
+    })
+    let dynamic =function(){
+        hobbies=document.querySelectorAll(".textbox");
+        hobbies=Array.from(hobbies).map(x=>x.value);
+        person_data.hobbies=hobbies;
+        localStorage.setItem("person_data"+person_no,JSON.stringify(person_data));
+    }
+    submit.addEventListener("input",function(e){
+        let impact=e.target;
+        dynamic();     
+
+    })
         </script>
     </body>
     </html>

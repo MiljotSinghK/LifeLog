@@ -137,7 +137,7 @@ a{
 .lists{
     width:100%;
 }
-.reminder{
+.reminder ,.hobby, .song, .watch ,.quote{
     background-color:lightpink;
     
     border:2px solid black;
@@ -147,6 +147,22 @@ a{
     margin:10px;
     align-items: center;
     justify-content: space-evenly;
+}
+.hobby{
+    background-color:brown;
+    border:2px solid yellowgreen;
+}
+.song{
+    background-color:blueviolet;
+    border:2px solid gold;
+}
+.watch{
+    background-color:crimson;
+    border:2px solid silver;
+}
+.quote{
+    background-color:silver;
+    border:2px solid dodgerblue;
 }
 #text_box{
     font-size: 30px;
