@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Login</title>
+        <link href="tabs/common.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <h2 class="title">Login</h2><br><br><br><hr><br>
+        <div class="login_container">
+            <form id="login_form">
+                <h4 class="input_bio">Name :<input type="text" placeholder="Enter Name" id="name"></h3>
+    
+                <h4 class="input_bio">Password :<input type="password" placeholder="Enter Password" id="pass"></h3>
+                <button type="submit" id="submit_login">Submit</button>
+                <p id="login_error" style="color:red;text-align:center;"></p>
+                <h4 class="input_bio">haven't registered yet ? <a href="tabs/register.html">Register</a></h4>
+            </form>
+        </div>
+        
+        <script>
+            let people=localStorage.getItem("people");
+            console.log(people);
+            let person =localStorage.getItem("person"+people);
+            // student=JSON.parse(person);
+            console.log(person);
+            
+            localStorage.setItem("current_login",null);
+
+            let form=document.getElementById("login_form");
+            form.addEventListener("submit",(e)=>{
+                e.preventDefault();
+                let login_details={name:document.getElementById("name").value,
+                    pass:document.getElementById("pass").value
+                }
+                let past_current=JSON.parse(localStorage.getItem("current_login"));
+                if (past_current){
+                    let past_categ=past_current.categ_list;
+                }
+                
+                if (people==null){
+                    document.getElementById("login_error").innerHTML="Error:Please register!";
+                }
+                for (let i=1;i<=people;i++){
+                    if (localStorage.getItem("person"+i)==JSON.stringify(login_details)){
+                        console.log("yes found");
+                        document.getElementById("login_error").innerHTML="";
+                        login_details.person_no=i;
+                        localStorage.setItem("current_login",JSON.stringify(login_details));
+                        window.open("tabs/Lifelog.html","_self");
+                    }
+                    else{
+                        document.getElementById("login_error").innerHTML="Error:Invalid details";
+                    }
+
+                }
+            })
+        </script>
+    </body>
+</html>

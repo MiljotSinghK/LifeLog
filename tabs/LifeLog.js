@@ -52,12 +52,27 @@
             Start.style.backgroundImage="linear-gradient(to right,white 40%,lightpink 60%)";
         });
             
-        // Start.addEventListener("click",function(){
-        //     localStorage.setItem("categoryList",JSON.stringify(categ_list));
-        //     window.open(categ_list[0],"_blank");
-        // });
 
-        //Using Form Validation so that the category user input isn't blank
+        let current_login=JSON.parse(localStorage.getItem("current_login"));
+        console.log("Current login:",current_login);
+        let person_no=current_login.person_no;
+        console.log(person_no);
+        
+        
+        console.log(current_login);
+
+        let user_info=JSON.parse(localStorage.getItem("person_data"+person_no));
+            if (user_info){
+                console.log(user_info.categ_list);
+                if (user_info.categ_list.length>0){
+                    window.open(user_info.categ_list[0],"_self");
+                }
+                
+            }
+            else{
+                user_info=JSON.parse(localStorage.getItem("person"+person_no));
+            }
+
         let choosing_category=document.getElementById("choose_category");
         let error=document.getElementById("error_message");
         choosing_category.addEventListener("submit",function(eve){
@@ -69,7 +84,11 @@
             }
             else{
                 //Most important -saving our category list buffer to JSON so that it may be accessed on the child node pages
-            localStorage.setItem("categoryList",JSON.stringify(categ_list));
+                
+            user_info.categ_list=categ_list;
+            localStorage.setItem("person_data"+person_no,JSON.stringify(user_info));
+            
+
 
             //Important to UI --before redirecting the user to another page ,first clear all the checkboxes 
             document.querySelectorAll(".category_button").forEach((cate)=>{
@@ -78,7 +97,7 @@
             })
 
             //Using BOM to open the desired page 
-            window.open("tabs/"+categ_list[0],"_self");
+            window.open(categ_list[0],"_self");
             }
         });
 
@@ -96,4 +115,5 @@
                 dark_button.style.backgroundColor="black";
                 dark_button.style.color="white";
             }
-})
+        })
+        

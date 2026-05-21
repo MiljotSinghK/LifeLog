@@ -1,8 +1,8 @@
 /* Creating own font-family-> Cause */
 @font-face{
     font-family:"Cause";
-    src:url('Fonts/Cause/Cause-VariableFont_wght.ttf'),
-    url('Fonts/Cause/static/Cause-Bold.ttf'),
+    src:url('../Fonts/Cause/Cause-VariableFont_wght.ttf'),
+    url('../Fonts/Cause/static/Cause-Bold.ttf'),
 }
 /* Animation for category list scroll to see */
 @keyframes Show {
@@ -41,7 +41,7 @@ span{
     padding:10px;
     border-radius: 30px;
     position:relative;
-    left:35vw;
+    left:30%;
     top:20px;
 }
 hr{
@@ -136,4 +136,22 @@ a{
     position:relative;
     bottom:3px;
     accent-color: blueviolet;
+}
+#Log_out{
+    float:left;
+    position:relative;
+    top:0px;
+    margin:10px;
+    font-size:30px;
+    font-family:"Cause";
+    padding:5px;
+    border-radius:12px;
+    background-color: black;
+    color:white;
+    transition :background-color 0.25s,color 0.25s;
+    cursor:pointer;
+}
+#Log_out:active{
+    color:black;
+    background-color: white;
 }

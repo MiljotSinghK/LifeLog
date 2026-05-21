@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Register</title>
+        <link href="common.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <h2 class="title">Register</h2><br><br><br><hr><br>
+        <div class="login_container">
+            <form id="register_form">
+                <h4 class="input_bio">Name :<input type="text" placeholder="Enter Name" id="name"></h3>
+                
+                <h4 class="input_bio">Password :<input type="password" placeholder="Enter Password" id="pass"></h3>
+                <button type="submit" id="submit_register">Register</button>
+            </form>
+        </div>
+        <button id="reset_data" style="visibility: hidden;">Reset Student Data</button>
+        <script>
+            let register_form=document.getElementById("register_form");
+            let people=localStorage.getItem("people");
+            console.log(typeof(people),people);
+            register_form.addEventListener("submit",function(e){
+                e.preventDefault();
+                let student_details={name:document.getElementById("name").value,
+                    pass:document.getElementById("pass").value
+                }
+                people++;
+                localStorage.setItem("people",JSON.stringify(people));
+                localStorage.setItem("person"+people,JSON.stringify(student_details));
+                window.open("../index.html","_self");
+            });
+
+            let reset=document.getElementById("reset_data");
+            reset.addEventListener("click",function(){
+                for (let i=0;i<people;i++){
+                    localStorage.removeItem("person"+people);
+                }
+                localStorage.setItem("people",0);
+                localStorage.removeItem("current_login");
+                console.log(localStorage.getItem("people"));
+            })
+        </script>
+    </body>
+</html>
