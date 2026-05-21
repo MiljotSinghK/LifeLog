@@ -2,7 +2,7 @@
 
 ### Description:
 
-LifeLog is exactly it's name ,a log book for life ,you can store your life here ,whether it be reminders for daily use or a record for hobbies ,tasks ,etc.
+LifeLog is exactly it's name ,a log book for life ,you can store your life here ,it makes journaling way easier and convenient ,whether it be reminders for daily use or a record for hobbies ,tasks ,etc.
 
 
 
@@ -13,9 +13,11 @@ We generally make no record of our life ,event ,choices ,tasks ,daily habits ,pr
 
 
 ### Planning:
+1\. First was the idea ,and its visualization ,this was a problem I faced in my daily life ,so I wanted to build something to ease that.
 
+2\. Then there was creating the frontend and connecting all the tabs and webpages together.
 
-
+3\. The backend felt the hardest ,to write the logic of every element so that it behaves like we want to ,especially the localStorage part felt different.
 
 
 ### Technologies Used:
@@ -32,7 +34,8 @@ CSS3
 
 ```
 LifeLog/
-
+├──Index.html       #Login page
+├──Register.html    #Register page
 ├──LifeLog.html     #Main Homepage
 
 	├──Reminders.html
@@ -51,6 +54,7 @@ LifeLog/
 
 2\. Clean look and good color combination. 
 
+3\. My favourite that it remembers user points and information by a simple and easy login.
 
 
 ### Cons/Shortcomings:
@@ -58,25 +62,30 @@ LifeLog/
 
 2\.The idea is expandable but to an extend ,then it starts becoming repetitive.
 
+3\.Uses very large instances of local storage ,in order to store user points ,and login information.
+
+4\.Is user specific but not much ,if user doesn't want to make any journal out of the given tabs ,they will be helpless (Future improvement: Allow user to create their own journal)
 
 
 ### Usage
 
 1\. Clone or download the project files
 
-2\. Open `LifeLog.html` in any modern web browser
+2\. Open `index.html` in any modern web browser
 
-3\. Navigate through the homepage and various logs using the menu
+3\. Register first with a username and set a password, then login with the same to get redirected to LifeLog homepage
 
-4\. Toggle dark mode using the checkbox on the home page
+4\. Navigate through the homepage and various logs using the menu
 
-5\. Explore various interests and make your own personalized lists
+5\. Toggle dark mode using the checkbox on the home page
+
+6\. Explore various interests and make your own personalized lists
 
 
 
 ### Contributing
 
-This is a personal project. Contributions are not accepted at this time.
+This is a personal project but contributions are accepted at this time.
 
 
 
